@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+python-multipart
+torch==2.5.1
+torchaudio==2.5.1
+transformers==4.38.2
+coqui-tts
+pypdf
+EbookLib
+beautifulsoup4

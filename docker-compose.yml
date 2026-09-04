@@ -1,0 +1,14 @@
+services:
+  zima-doc-reader-pro:
+    build: .
+    container_name: zima-doc-reader-pro
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./app:/app/app
+      - ./books:/app/books
+      - ./output:/output
+    environment:
+      - PYTHONUNBUFFERED=1
+      - COQUI_TOS_AGREED=1
