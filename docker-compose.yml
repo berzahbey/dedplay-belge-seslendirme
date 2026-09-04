@@ -1,14 +1,15 @@
+version: '3.8'
+
 services:
-  zima-doc-reader-pro:
+  dedplay-belge-seslendirme:
     build: .
-    container_name: zima-doc-reader-pro
+    container_name: dedplay-belge-seslendirme
     restart: unless-stopped
     ports:
-      - "8000:8000"
+      - "7860:8000"
     volumes:
-      - ./app:/app/app
-      - ./books:/app/books
-      - ./output:/output
+      - /var/lib/casaos_data/AppData/dedplay-belge-seslendirme/books:/app/books
+      - /var/lib/casaos_data/AppData/dedplay-belge-seslendirme/output:/output
+      - /root/.local/share/tts:/root/.local/share/tts
     environment:
-      - PYTHONUNBUFFERED=1
-      - COQUI_TOS_AGREED=1
+      - TZ=Europe/Amsterdam
