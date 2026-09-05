@@ -1,13 +1,18 @@
 services:
   dedplay-belge-seslendirme:
-    build: .
+    build:
+      context: https://github.com/berzahbey/dedplay-belge-seslendirme.git
     container_name: dedplay-belge-seslendirme
     restart: unless-stopped
     ports:
       - "7860:8000"
     volumes:
-      - /var/lib/casaos_data/AppData/dedplay-belge-seslendirme/books:/app/books
-      - /var/lib/casaos_data/AppData/dedplay-belge-seslendirme/output:/output
+      - /DATA/AppData/dedplay-belge-seslendirme/books:/app/books
+      - /DATA/AppData/dedplay-belge-seslendirme/output:/output
       - /root/.local/share/tts:/root/.local/share/tts
     environment:
       - TZ=Europe/Amsterdam
+      - USE_GPU=true
+    devices:
+      - /dev/dri:/dev/dri
+    privileged: true
